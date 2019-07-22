@@ -58,9 +58,10 @@ static void read_message (int fd, fd_set set, chat_output_t *loader) {
 
   printf("read message\n");
   loader->id = listener;
-  loader->message = buf;
+  loader->message = (char *)malloc(strlen(buf) + 1);
+  strcpy(loader->message, buf);
 
-  printf("loaded loader\n");
+  return;
 }
 
 
